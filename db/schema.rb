@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200812184702) do
+ActiveRecord::Schema.define(version: 20200812185518) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comb_staff_members", force: :cascade do |t|
+    t.integer "comb_id"
+    t.integer "worker_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comb_id"], name: "index_comb_staff_members_on_comb_id"
+    t.index ["worker_id"], name: "index_comb_staff_members_on_worker_id"
+  end
 
   create_table "combs", force: :cascade do |t|
     t.string "name", null: false
@@ -22,6 +31,18 @@ ActiveRecord::Schema.define(version: 20200812184702) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["supervisor_id"], name: "index_combs_on_supervisor_id"
+  end
+
+  create_table "data_entries", force: :cascade do |t|
+    t.integer "worker_id", null: false
+    t.date "date", null: false
+    t.integer "pollenglobs", null: false
+    t.integer "nectar", null: false
+    t.integer "advisement"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["date"], name: "index_data_entries_on_date"
+    t.index ["worker_id"], name: "index_data_entries_on_worker_id"
   end
 
   create_table "worker_bees", force: :cascade do |t|
