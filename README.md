@@ -64,7 +64,7 @@ each Comb.
   There is a strong correlation between Nectar intake and PollenGlobs collected.
 
   `SweetSpot`: Each Comb has a particular target range of PollenGlobs per
-               WorkerBee, usually between **10.0 p/g to 15.0 p/g**.
+               WorkerBee, usually between **10.0 p/g to 15.0 p/g**. 
 
   `Advisement`s: The output of the very beefficient algorithm, which determines
                  if a WorkerBee needs a change in Nectar allowance: used by the
