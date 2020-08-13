@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200812185518) do
+ActiveRecord::Schema.define(version: 20200813225318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,20 +27,20 @@ ActiveRecord::Schema.define(version: 20200812185518) do
   create_table "combs", force: :cascade do |t|
     t.string "name", null: false
     t.integer "supervisor_id", null: false
-    t.integer "sweet_spot", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "sweet_spot", null: false
     t.index ["supervisor_id"], name: "index_combs_on_supervisor_id"
   end
 
   create_table "data_entries", force: :cascade do |t|
     t.integer "worker_id", null: false
     t.date "date", null: false
-    t.integer "pollenglobs", null: false
     t.integer "nectar", null: false
     t.integer "advisement"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "pollen_globs", null: false
     t.index ["date"], name: "index_data_entries_on_date"
     t.index ["worker_id"], name: "index_data_entries_on_worker_id"
   end
