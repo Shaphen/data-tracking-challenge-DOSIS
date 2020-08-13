@@ -1,6 +1,8 @@
 <h1><%= @worker_bee.name %>'s Bio</h1>
 <h3>WorkerBee ID: <%= @worker_bee.id %></h3>
-<h3>Assigned Comb: <%= @comb.name %></h3>
+<h3>Assigned Comb: <a href="<%= comb_url(@comb) %>"><%= @comb.name %></a></h3>
 <h3>Supervisor: <%= @supervisor.name %></h3>
 
-<a href="">Show Metrics</a>
+<a href="<%= data_entry_url %>">Show Graphs</a>
+<br>
+<a href="<%= worker_bees_url %>">Back</a>
