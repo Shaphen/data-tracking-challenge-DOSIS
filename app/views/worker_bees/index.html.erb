@@ -4,5 +4,16 @@
 <ul>
   <% @worker_bees.each do |worker| %>
     <li><%= worker.name %></li>
+    <% if worker.supervised_combs %>
+      <p>Queen's Cabeenet?: YES</p>
+      <p>Superviser Combs:</p>
+      <ul>
+        <% worker.supervised_combs.each do |scomb| %>
+          <li><%= scomb.name %></li>
+        <% end %>
+      </ul>
+    <% end %>
   <% end %>
 </ul>
+
+<a href="<%= combs_url %>">See All Combs</a>
