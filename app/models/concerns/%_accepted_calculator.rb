@@ -8,7 +8,7 @@ module PercentageAccepted
 end
 
 # To use this in any model file:
-# At the top of desired file - includes PercentageAccepted
+# At the top of desired file - include PercentageAccepted
 # Use - PercentageAccepted.calculate(input1, input2)
 
 # To use the same approach for controller navigate to controllers/concerns

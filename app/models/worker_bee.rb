@@ -10,7 +10,7 @@ class WorkerBee < ApplicationRecord
     source: :comb
 
   has_many :supervised_combs,
-    foreign_key: :supervisor_id
+    foreign_key: :supervisor_id,
     class_name: :Comb
 
   has_many :data_entries,
