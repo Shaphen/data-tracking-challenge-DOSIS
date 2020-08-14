@@ -12,14 +12,23 @@ WorkerBee.create! ([
 ])
 
 Comb.create! ([
-  {name: "Combustion", supervisor_id: WorkerBee.first, sweet_spot: 10.5},
-  {name: "Combine", supervisor_id: WorkerBee.first, sweet_spot: 14.7},
-  {name: "Combination", supervisor_id: WorkerBee.second, sweet_spot: 12.2},
+  {name: "Combustion", supervisor_id: WorkerBee.first.id, sweet_spot: 10.5},
+  {name: "Combine", supervisor_id: WorkerBee.first.id, sweet_spot: 14.7},
+  {name: "Combination", supervisor_id: WorkerBee.second.id, sweet_spot: 12.2}
 ])
 
 CombStaffMember.create! ([
-  {comb_id: Comb.first, worker_id: WorkerBee.third},
-  {comb_id: Comb.first, worker_id: WorkerBee.fourth},
-  {comb_id: Comb.second, worker_id: WorkerBee.fifth},
-  {comb_id: Comb.third, worker_id: WorkerBee.third} # to similate comb re-assignment
+  {comb_id: Comb.first.id, worker_id: WorkerBee.first.id},
+  {comb_id: Comb.first.id, worker_id: WorkerBee.third.id},
+  {comb_id: Comb.first.id, worker_id: WorkerBee.fourth.id},
+  {comb_id: Comb.second.id, worker_id: WorkerBee.first.id},
+  {comb_id: Comb.second.id, worker_id: WorkerBee.fifth.id},
+  {comb_id: Comb.third.id, worker_id: WorkerBee.second.id},
+  {comb_id: Comb.third.id, worker_id: WorkerBee.third.id} # to similate comb re-assignment
+])
+
+DataEntry.create! ([
+  {worker_id: WorkerBee.third.id, date: Date.parse("Aug 4 2020"), nectar: 300, pollen_globs: 13.1},
+  {worker_id: WorkerBee.third.id, date: Date.parse("Aug 6 2020"), nectar: 0, pollen_globs: 10.1, advisement: 600},
+  {worker_id: WorkerBee.third.id, date: Date.parse("Aug 7 2020"), nectar: 600, pollen_globs: 12.5}
 ])

@@ -1,5 +1,5 @@
 class DataEntry < ApplicationRecord
-  validates :worker_id, :date, :pollenglobs, :nectar, :advisement, presence: true
+  validates :worker_id, :date, :pollen_globs, :nectar, presence: true
 
   belongs_to :bee,
     foreign_key: :worker_id,
