@@ -18,28 +18,29 @@ class WorkerBeesController < ApplicationController
     # data for charts and variable exchanges
     @data = DataEntry.where(worker_id: params[:id]) # grab all data of worker bee
     gon.worker_name = @worker_bee.name
-    gon.dates = []
-    gon.pg_values = []
-    gon.nectars = []
-    @percent_accepted = []
+    gon.dates, gon.pg_values, gon.nectars, @percent_accepted = [], [], [], []
     @curr_advisement = @data.first.advisement
     @accepted = 0.0
     @rejected = 1.0
     
-    @data.order(:date).each do |entry| # iterate each entry in data table and push into exchange gem variable
+    # iterate each entry in data table and push into exchange gem variable
+    @data.order(:date).each do |entry|
       gon.dates << entry.date if gon.dates.length < 8
       gon.pg_values << entry.pollen_globs if gon.pg_values.length < 8
       gon.nectars << entry.nectar / 100 if gon.nectars.length < 8
 
+      # starter variables for accepted percentage logic
       if entry.advisement
         @curr_advisement = entry.advisement 
         @accepted = 0
         @rejected = 0
       end
-      res = PercentageAccepted.calculate(entry.nectar, @curr_advisement, @accepted, @rejected)
-      @percent_accepted << res[0].round()
-      @accepted = res[1]
-      @rejected = res[2]
+
+      # call helper method and reassign variables
+      results = PercentageAccepted.calculate(entry.nectar, @curr_advisement, @accepted, @rejected)
+      @percent_accepted << results[0].round()
+      @accepted = results[1]
+      @rejected = results[2]
     end
 
     render :show

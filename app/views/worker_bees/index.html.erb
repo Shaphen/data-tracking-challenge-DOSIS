@@ -1,8 +1,12 @@
-<h1>Very Tack, Much Data</h1>
 
-<h3>Select a Worker Bee to display their metrics</h3>
-<ul>
-  <% @worker_bees.each do |worker| %>
-    <li><a href="<%= worker_bee_url(worker.id) %>"><%= worker.name %></a></li>
-  <% end %>
-</ul>
+<div id="index-page">
+  <h1 id="index-title">Very Tack, Much Data</h1>
+  <h3 id="list-title">Select a Worker Bee to display their metrics</h3>
+  <ul id="index-list">
+    <% @worker_bees.each do |worker| %>
+      <li id="index-list-item">
+        <a id="list-worker-name" href="<%= worker_bee_url(worker.id) %>"><%= worker.name %></a>
+      </li>
+    <% end %>
+  </ul>
+</div>

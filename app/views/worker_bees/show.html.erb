@@ -1,25 +1,25 @@
-<h1>
+<h1 id="bio-title">
   <%= @worker_bee.name %>'s Bio
 </h1>
-<h3>
+<h3 id="bio-worker-id">
   WorkerBee ID: <%= @worker_bee.id %>
 </h3>
-<h3>
-  Assigned Comb: <a href="<%= comb_url(@comb) %>">
+<h3 id="bio-worker-comb">
+  Assigned Comb: <a id="bio-comb-name" href="<%= comb_url(@comb) %>">
     <%= @comb.name %>
   </a>
 </h3>
-<h3>
+<h3 id="bio-supervisor">
   Supervisor: <%= @supervisor.name %>
 </h3>
-<h3>
+<h3 id="bio-fav-food">
   Favorite Food: <%= @worker_bee.favorite_food %>
 </h3>
 
-<div id="chart" style="width: 70%; height: 400px"></div>
+<div id="data-chart" style="width: 70%; height: 400px"></div>
 
-<table style="width: 70%; height: 400px">
-  <tr>
+<table id="data-table" style="width: 70%; height: 400px">
+  <tr id="data-table-titles">
     <th>ID</th>
     <th>ID-CombID</th>
     <th>Date</th>
@@ -29,7 +29,7 @@
     <th>% Accepted</th>
   </tr>
   <% @data.each_with_index do |entry, idx| %>
-    <tr>
+    <tr id="data-table-values">
       <th><%= @worker_bee.id %></th>
       <th><%= @worker_bee.id %>-<%= @comb.id %></th>
       <th><%= entry.date %></th>
