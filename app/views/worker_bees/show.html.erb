@@ -1,14 +1,53 @@
-<h1><%= @worker_bee.name %>'s Bio</h1>
-<h3>WorkerBee ID: <%= @worker_bee.id %></h3>
-<h3>Assigned Comb: <a href="<%= comb_url(@comb) %>"><%= @comb.name %></a></h3>
-<h3>Supervisor: <%= @supervisor.name %></h3>
-<h3>Fovorite Food: <%= @worker_bee.favorite_food %></h3>
+<h1>
+  <%= @worker_bee.name %>'s Bio
+</h1>
+<h3>
+  WorkerBee ID: <%= @worker_bee.id %>
+</h3>
+<h3>
+  Assigned Comb: <a href="<%= comb_url(@comb) %>">
+    <%= @comb.name %>
+  </a>
+</h3>
+<h3>
+  Supervisor: <%= @supervisor.name %>
+</h3>
+<h3>
+  Fovorite Food: <%= @worker_bee.favorite_food %>
+</h3>
 
-<div id="first-chart" style="width: 70%; height: 400px">
-  <p>-Unsuccessful load. Try refreshing-</p>
-</div>
+<div id="first-chart" style="width: 70%; height: 400px"> -chart- </div>
+
+<table style="width: 70%; height: 400px">
+  <tr>
+    <th>ID</th>
+    <th>ID-CombID</th>
+    <th>Date</th>
+    <th>PollenGlobs</th>
+    <th>Nectar</th>
+    <th>Advisement</th>
+    <th>% Accepted</th>
+  </tr>
+  <% @data.each do |entry| %>
+    <tr>
+      <th><%= @worker_bee.id %></th>
+      <th><%= @worker_bee.id %>-<%= @comb.id %></th>
+      <th><%= entry.date %></th>
+      <th><%= entry.pollen_globs %></th>
+      <th><%= entry.nectar %></th>
+      <% if entry.advisement %>
+        <th><%= entry.advisement %></th>
+      <% else %>
+        <th>N/A</th>
+      <% end %>
+      <th>TBD</th>
+    </tr>
+  <% end %>
+</table>
+<a href="<%= worker_bees_url %>">Back</a>
 
 <script>
+  // document.addEventListener("DOMContentLoaded", function() {
     var myChart = Highcharts.chart('first-chart', {
         title: {
             text: gon.worker_name + "'s Metrics"
@@ -31,6 +70,5 @@
             data: gon.pg_values
         }]
     });
+  // });
 </script>
-
-<a href="<%= worker_bees_url %>">Back</a>
