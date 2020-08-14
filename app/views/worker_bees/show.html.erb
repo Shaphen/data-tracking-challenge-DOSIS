@@ -4,17 +4,17 @@
 <h3>Supervisor: <%= @supervisor.name %></h3>
 <h3>Fovorite Food: <%= @worker_bee.favorite_food %></h3>
 
-<div id="first-chart" style="width: 100%; height: 400px">
+<div id="first-chart" style="width: 70%; height: 400px">
   <p>-Unsuccessful load. Try refreshing-</p>
 </div>
 
 <script>
     var myChart = Highcharts.chart('first-chart', {
         title: {
-            text: gon.test
+            text: gon.worker_name + "'s Metrics"
         },
         xAxis: {
-            categories: ['date1', 'date2', 'date3']
+            categories: gon.dates
         },
         yAxis: {
             title: {
@@ -24,11 +24,11 @@
         series: [{
             type: 'column',
             name: 'Nectar (hundreds)',
-            data: [3, 2, 6]
+            data: gon.nectars
         }, {
             type: 'line',
             name: 'Pollen Globs',
-            data: [12.5, 9.1, 13.6]
+            data: gon.pg_values
         }]
     });
 </script>

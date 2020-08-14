@@ -14,7 +14,18 @@ class WorkerBeesController < ApplicationController
     @comb = Comb.find_by(id: @active_membership.comb_id)
     @supervisor = WorkerBee.find_by(id: @comb.supervisor_id)
 
-    @data = DataEntry.where(worker_id: params[:id]) # find all entries for worker bee
+    # data for charts and variable exchanges
+    @data = DataEntry.where(worker_id: params[:id])
+    gon.worker_name = @worker_bee.name
+    gon.dates = []
+    gon.pg_values = []
+    gon.nectars = []
+    @data.order(:date).each do |entry|
+      gon.dates << entry.date
+      gon.pg_values << entry.pollen_globs
+      gon.nectars << entry.nectar / 100
+    end
+    # debugger
 
     render :show
   end

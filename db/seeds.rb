@@ -28,7 +28,10 @@ CombStaffMember.create! ([
 ])
 
 DataEntry.create! ([
-  {worker_id: WorkerBee.third.id, date: Date.parse("Aug 4 2020"), nectar: 300, pollen_globs: 13.1},
-  {worker_id: WorkerBee.third.id, date: Date.parse("Aug 6 2020"), nectar: 0, pollen_globs: 10.1, advisement: 600},
-  {worker_id: WorkerBee.third.id, date: Date.parse("Aug 7 2020"), nectar: 600, pollen_globs: 12.5}
+  {worker_id: WorkerBee.third.id, date: Date.parse("Aug 4 2020"), nectar: 300, pollen_globs: 13.8},
+  {worker_id: WorkerBee.third.id, date: Date.parse("Aug 6 2020"), nectar: 100, pollen_globs: 10.1, advisement: 600},
+  {worker_id: WorkerBee.third.id, date: Date.parse("Aug 7 2020"), nectar: 600, pollen_globs: 12.5},
+  {worker_id: WorkerBee.third.id, date: Date.parse("Aug 8 2020"), nectar: 600, pollen_globs: 14.2},
+  {worker_id: WorkerBee.third.id, date: Date.parse("Aug 10 2020"), nectar: 400, pollen_globs: 10.5},
+  {worker_id: WorkerBee.third.id, date: Date.parse("Aug 13 2020"), nectar: 500, pollen_globs: 14.0},
 ])
