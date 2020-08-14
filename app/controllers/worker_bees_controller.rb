@@ -16,6 +16,7 @@ class WorkerBeesController < ApplicationController
 
     # data for charts and variable exchanges
     @data = DataEntry.where(worker_id: params[:id]) # grab all data of worker bee
+    gon.worker_id = @worker_bee.id
     gon.worker_name = @worker_bee.name
     gon.dates = []
     gon.pg_values = []
@@ -26,7 +27,6 @@ class WorkerBeesController < ApplicationController
       gon.pg_values << entry.pollen_globs if gon.pg_values.length < 8
       gon.nectars << entry.nectar / 100 if gon.nectars.length < 8
     end
-    # debugger
 
     render :show
   end

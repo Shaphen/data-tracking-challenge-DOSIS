@@ -13,10 +13,10 @@
   Supervisor: <%= @supervisor.name %>
 </h3>
 <h3>
-  Fovorite Food: <%= @worker_bee.favorite_food %>
+  Favorite Food: <%= @worker_bee.favorite_food %>
 </h3>
 
-<div id="first-chart" style="width: 70%; height: 400px"> -chart- </div>
+<div id="chart" style="width: 70%; height: 400px"></div>
 
 <table style="width: 70%; height: 400px">
   <tr>
@@ -47,8 +47,8 @@
 <a href="<%= worker_bees_url %>">Back</a>
 
 <script>
-  // document.addEventListener("DOMContentLoaded", function() {
-    var myChart = Highcharts.chart('first-chart', {
+  document.addEventListener("DOMContentLoaded", function() {
+    Highcharts.chart('chart', {
         title: {
             text: gon.worker_name + "'s Metrics"
         },
@@ -70,5 +70,5 @@
             data: gon.pg_values
         }]
     });
-  // });
+  });
 </script>
