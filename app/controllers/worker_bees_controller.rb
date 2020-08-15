@@ -38,7 +38,7 @@ class WorkerBeesController < ApplicationController
 
       # call helper method and reassign variables
       results = PercentageAccepted.calculate(entry.nectar, @curr_advisement, @accepted, @rejected)
-      @percent_accepted << results[0].round()
+      @percent_accepted.unshift(results[0].round()) # unshift because table goes from bottom-up (as per design docs)
       @accepted = results[1]
       @rejected = results[2]
     end

@@ -12,7 +12,7 @@
   border-radius: 15px;
   padding: 30px 10px;
   box-shadow: 10px 10px 15px;
-  background: white;
+  background: rgba(236, 236, 236, 0.856);
   overflow: scroll;
 }
 
@@ -21,12 +21,14 @@
   text-align: center;
   font-size: 30px;
   cursor: default;
+  color: #1e6b00;
 }
 
 #list-title {
   width: 100%;
   text-align: center;
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid #1e6b00;
+;
   margin-bottom: 10px;
   padding: 20px;
   font-size: 22px;
@@ -50,8 +52,9 @@
   text-decoration: none;
   font-size: 20px;
   transition: all 0.3s;
+  color: #1e6b00;
 }
 
 #list-worker-name:hover {
-  color: red;
+  color: #35a707;
 }

@@ -5,18 +5,24 @@
       <%= @worker_bee.name %>'s Identification Page
     </h1>
     <h3 id="bio-worker-id">
-      WorkerBee ID: <%= @worker_bee.id %>
+      WorkerBee ID: <strong id="bio-value"> 
+        <%= @worker_bee.id %>
+      </strong>
     </h3>
     <h3 id="bio-worker-comb">
-      Assigned Comb: <a id="bio-comb-name" href="<%= comb_url(@comb) %>">
+      Assigned Comb: <strong id="bio-value"> 
         <%= @comb.name %> (Sweet Spot: <%= @comb.sweet_spot %>)
-      </a>
+      </strong>
     </h3>
     <h3 id="bio-supervisor">
-      Supervisor: <%= @supervisor.name %>
+      Supervisor: <strong id="bio-value"> 
+        <%= @supervisor.name %>
+      </strong>
     </h3>
     <h3 id="bio-fav-food">
-      Favorite Food: <%= @worker_bee.favorite_food %>
+      Favorite Food: <strong id="bio-value"> 
+        <%= @worker_bee.favorite_food %>
+      </strong>
     </h3>
   </div>
 
@@ -34,7 +40,7 @@
       <th>Advisement</th>
       <th>% Accepted</th>
     </tr>
-    <% @data.each_with_index do |entry, idx| %>
+    <% @data.reverse.each_with_index do |entry, idx| %>
       <tr id="data-table-values">
         <th><%= @worker_bee.id %></th>
         <th><%= @worker_bee.id %>-<%= @comb.id %></th>

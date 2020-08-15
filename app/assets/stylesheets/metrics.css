@@ -11,7 +11,9 @@
   justify-content: space-around;
   font-size: 15px;
   font-weight: bold;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  background: rgba(236, 236, 236, 0.856);
 }
 
 #bio-title {
@@ -19,6 +21,11 @@
   text-align: center;
   font-size: 40px;
   padding: 20px;
+  color: #1e6b00;
+}
+
+#bio-value {
+  color: #1e6b00;
 }
 
 #bio-back-button {
@@ -28,6 +35,7 @@
   text-decoration: none;
   text-transform: uppercase;
   transition: color 0.3s;
+  color: #1e6b00;
 }
 
 #data-chart {
