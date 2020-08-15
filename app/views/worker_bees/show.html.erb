@@ -1,74 +1,54 @@
-<h1 id="bio-title">
-  <%= @worker_bee.name %>'s Bio
-</h1>
-<h3 id="bio-worker-id">
-  WorkerBee ID: <%= @worker_bee.id %>
-</h3>
-<h3 id="bio-worker-comb">
-  Assigned Comb: <a id="bio-comb-name" href="<%= comb_url(@comb) %>">
-    <%= @comb.name %>
-  </a>
-</h3>
-<h3 id="bio-supervisor">
-  Supervisor: <%= @supervisor.name %>
-</h3>
-<h3 id="bio-fav-food">
-  Favorite Food: <%= @worker_bee.favorite_food %>
-</h3>
 
-<div id="data-chart" style="width: 70%; height: 400px"></div>
+<div id="show-container">
+  <div id="bio">
+    <h1 id="bio-title">
+      <%= @worker_bee.name %>'s Bio
+    </h1>
+    <h3 id="bio-worker-id">
+      WorkerBee ID: <%= @worker_bee.id %>
+    </h3>
+    <h3 id="bio-worker-comb">
+      Assigned Comb: <a id="bio-comb-name" href="<%= comb_url(@comb) %>">
+        <%= @comb.name %>
+      </a>
+    </h3>
+    <h3 id="bio-supervisor">
+      Supervisor: <%= @supervisor.name %>
+    </h3>
+    <h3 id="bio-fav-food">
+      Favorite Food: <%= @worker_bee.favorite_food %>
+    </h3>
+  </div>
 
-<table id="data-table" style="width: 70%; height: 400px">
-  <tr id="data-table-titles">
-    <th>ID</th>
-    <th>ID-CombID</th>
-    <th>Date</th>
-    <th>PollenGlobs</th>
-    <th>Nectar</th>
-    <th>Advisement</th>
-    <th>% Accepted</th>
-  </tr>
-  <% @data.each_with_index do |entry, idx| %>
-    <tr id="data-table-values">
-      <th><%= @worker_bee.id %></th>
-      <th><%= @worker_bee.id %>-<%= @comb.id %></th>
-      <th><%= entry.date %></th>
-      <th><%= entry.pollen_globs %></th>
-      <th><%= entry.nectar %></th>
-      <% if entry.advisement %>
-        <th><%= entry.advisement %></th>
-      <% else %>
-        <th>N/A</th>
-      <% end %>
-      <th><%= @percent_accepted[idx] %>%</th>
+  <div id="data-chart" style="width: 70%; height: 400px"></div>
+
+  <table id="data-table" style="width: 70%; height: 400px">
+    <tr id="data-table-titles">
+      <th>ID</th>
+      <th>ID-CombID</th>
+      <th>Date</th>
+      <th>PollenGlobs</th>
+      <th>Nectar</th>
+      <th>Advisement</th>
+      <th>% Accepted</th>
     </tr>
-  <% end %>
-</table>
-<a href="<%= worker_bees_url %>">Back</a>
+    <% @data.each_with_index do |entry, idx| %>
+      <tr id="data-table-values">
+        <th><%= @worker_bee.id %></th>
+        <th><%= @worker_bee.id %>-<%= @comb.id %></th>
+        <th><%= entry.date %></th>
+        <th><%= entry.pollen_globs %></th>
+        <th><%= entry.nectar %></th>
+        <% if entry.advisement %>
+          <th><%= entry.advisement %></th>
+        <% else %>
+          <th>N/A</th>
+        <% end %>
+        <th><%= @percent_accepted[idx] %>%</th>
+      </tr>
+    <% end %>
+  </table>
+  <a id="bio-back-button" href="<%= worker_bees_url %>">Back</a>
+</div>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    Highcharts.chart('chart', {
-        title: {
-            text: gon.worker_name + "'s Metrics"
-        },
-        xAxis: {
-            categories: gon.dates
-        },
-        yAxis: {
-            title: {
-                text: 'Amount'
-            }
-        },
-        series: [{
-            type: 'column',
-            name: 'Nectar (hundreds)',
-            data: gon.nectars
-        }, {
-            type: 'line',
-            name: 'Pollen Globs',
-            data: gon.pg_values
-        }]
-    });
-  });
-</script>
+<script src="chart.js" />
