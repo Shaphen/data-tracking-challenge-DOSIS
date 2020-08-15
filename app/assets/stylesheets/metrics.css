@@ -44,6 +44,15 @@
   border-radius: 10px;
 }
 
+#data-table-values {
+  cursor: default;
+  transition: all 0.3s
+}
+
+#data-table-values:hover {
+  background: #c2bfbf;
+}
+
 tr th {
   padding: 15px;
   border-bottom: 1px solid;
