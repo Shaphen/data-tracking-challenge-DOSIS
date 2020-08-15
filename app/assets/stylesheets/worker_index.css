@@ -1,9 +1,9 @@
 #index-page {
   position: absolute;
-  height: 50%;
+  height: 60%;
   width: 50%;
   left: 25%;
-  top: 20%;
+  top: 15%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,7 +13,7 @@
   padding: 30px 10px;
   box-shadow: 10px 10px 15px;
   background: white;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 #index-title {
@@ -37,7 +37,7 @@
   text-align: center;
   height: 60%;
   width: 100%;
-  padding: 30px;
+  padding-top: 30px;
   display: flex;
   flex-wrap: wrap;
 }
