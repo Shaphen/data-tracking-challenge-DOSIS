@@ -1,0 +1,57 @@
+#index-page {
+  position: absolute;
+  height: 50%;
+  width: 50%;
+  left: 25%;
+  top: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 30px 10px;
+  box-shadow: 10px 10px 15px;
+  background: white;
+  overflow: hidden;
+}
+
+#index-title {
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+  cursor: default;
+}
+
+#list-title {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid black;
+  margin-bottom: 10px;
+  padding: 20px;
+  font-size: 22px;
+  cursor: default;
+}
+
+#index-list {
+  text-align: center;
+  height: 60%;
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#index-list-item {
+  width: 50%;
+}
+
+#list-worker-name {
+  text-decoration: none;
+  font-size: 20px;
+  transition: all 0.3s;
+}
+
+#list-worker-name:hover {
+  color: red;
+}
