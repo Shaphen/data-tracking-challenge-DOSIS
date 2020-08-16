@@ -1,5 +1,7 @@
-<form id="update-advisement" action="" method="PATCH">
+<form id="update-advisement" action="<%= data_entry_url(entry) %>" method="POST">
+  <input type="hidden" name="_method" value="PATCH">
+
   <label id="form-value" for="advisement">New Advisement:</label>
-  <input id="new-advisement" type="text" value="<%= advisement %>">
+  <input id="new-advisement" type="text" name="advisement" value="<%= entry.advisement %>">
   <input type="submit">
 </form>

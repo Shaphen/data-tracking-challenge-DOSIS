@@ -11,9 +11,7 @@ class DataEntryController < ApplicationController
   
   def update
     @entry = DataEntry.find_by(id: params[:id])
-    debugger
-    @entry.update#(advisement: params[:entry][:advisement])
+    @entry.update(advisement: params[:advisement])
     redirect_to worker_bee_url(@entry.worker_id)
   end
-
 end

@@ -24,7 +24,8 @@ class WorkerBeesController < ApplicationController
     @rejected = 1.0
     
     # iterate each entry in data table and push into exchange gem variable
-    @data.order(:date).each do |entry|
+    @data = @data.order(:date)
+    @data.each do |entry|
       gon.dates << entry.date if gon.dates.length < 8
       gon.pg_values << entry.pollen_globs if gon.pg_values.length < 8
       gon.nectars << entry.nectar / 100 if gon.nectars.length < 8
