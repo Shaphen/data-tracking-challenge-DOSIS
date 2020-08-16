@@ -40,20 +40,60 @@
 
 #data-chart {
   margin: 10px;
+  width: 80%;
 }
 
 #bio-back-button:hover {
   color: red;
 }
 
+#change-view-reg:focus + 
 #data-table {
-  margin: 30px;
+  display: none;
+}
+
+#change-view-reg:focus + 
+#data-table + 
+#data-table-reg {
+  display: inline-table;
+}
+
+#table-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 80%;
+}
+
+#data-table {
+  height: 400px;
+  width: 100%;
+  margin: 30px 0px;
   border: 1px solid;
   border-radius: 10px;
 }
 
+#change-view-reg {
+  position: relative;
+  width: 110px;
+}
+
+#data-table-reg {
+  position: relative;
+  height: 400px;
+  width: 100%;
+  margin: 30px;
+  border: 1px solid;
+  border-radius: 10px;
+  display: none;
+}
+
 #data-table-titles {
   cursor: default;
+}
+
+#data-table-titles-reg {
+  width: 100%;
 }
 
 #data-table-values {
