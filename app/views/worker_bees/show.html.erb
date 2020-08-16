@@ -32,7 +32,7 @@
 
   <%# table display %>
   <div id="table-container">
-  <button id="change-view-reg">Toggle View</button>
+  <button id="toggle-view">Toggle View</button>
     <table id="data-table">
       <tr id="data-table-titles">
         <th>ID</th>
@@ -60,7 +60,7 @@
       <% end %>
     </table>
 
-    <table id="data-table-reg">
+    <table id="data-table-reg-blank">
       <tr id="data-table-titles-reg">
         <th>Date</th>
         <th>PollenGlobs</th>
@@ -86,4 +86,23 @@
   </div>
 </div>
 
+<%# table and chart javascript logic %>
+<script>
+  let toggle = document.getElementById("toggle-view")
+  let switched = false
+  toggle.addEventListener("click", function () {
+    switched = !switched
+    mainTableShow = document.getElementById("data-table")
+    regTableBlank = document.getElementById("data-table-reg-blank")
+    mainTableBlank = document.getElementById("data-table-blank")
+    regTableShow = document.getElementById("data-table-reg")
+    if (switched) {
+      mainTableShow.setAttribute("id", "data-table-blank")
+      regTableBlank.setAttribute("id", "data-table-reg")
+    } else {
+      mainTableBlank.setAttribute("id", "data-table")
+      regTableShow.setAttribute("id", "data-table-reg-blank")
+    }
+  });
+</script>
 <script src="chart.js" />

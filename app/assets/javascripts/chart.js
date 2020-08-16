@@ -1,5 +1,5 @@
-document.addEventListener("DOMContentLoaded", function () {
-  Highcharts.chart('data-chart', {
+document.addEventListener("DOMContentLoaded", function() {
+  Highcharts.chart("data-chart", {
     title: {
       text: gon.worker_name + "'s Metrics"
     },

@@ -47,16 +47,16 @@
   color: red;
 }
 
-#change-view-reg:focus + 
-#data-table {
+/* #toggle-view:focus + 
+.data-table {
   display: none;
 }
 
-#change-view-reg:focus + 
-#data-table + 
-#data-table-reg {
+#toggle-view:focus + 
+.data-table + 
+.data-table-reg {
   display: inline-table;
-}
+} */
 
 #table-container {
   display: flex;
@@ -73,7 +73,11 @@
   border-radius: 10px;
 }
 
-#change-view-reg {
+#data-table-blank {
+  display: none;
+}
+
+#toggle-view {
   position: relative;
   width: 110px;
 }
@@ -85,6 +89,9 @@
   margin: 30px;
   border: 1px solid;
   border-radius: 10px;
+}
+
+#data-table-reg-blank {
   display: none;
 }
 
