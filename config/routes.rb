@@ -4,6 +4,6 @@ Rails.application.routes.draw do
 
   resources :worker_bees, only: [:index, :show, :update]
   resources :combs, only: [:index, :show]
-  resources :data_entry, only: [:show, :update]
+  resources :data_entry, only: [:show, :edit, :update]
   
 end
