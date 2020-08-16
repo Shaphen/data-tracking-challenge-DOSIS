@@ -80,6 +80,11 @@
 #toggle-view {
   position: relative;
   width: 110px;
+  transition: all 0.3s;
+}
+
+#toggle-view:hover {
+  transform: scale(1.04);
 }
 
 #data-table-reg {
@@ -110,6 +115,121 @@
 
 #data-table-values:hover {
   background: #c2bfbf;
+}
+
+#edit-advisement-button {
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+#edit-advisement-button:hover {
+  background: #47bd19;
+  transform: scale(1.04);
+}
+
+#update-advisement-title {
+  width: 100%;
+  font-size: 30px;
+  text-align: center;
+  margin-top: -40px;
+  color: #1e6b00;
+}
+
+#edit-advisement-text {
+  text-decoration: none;
+  color: black;
+}
+
+#update-container {
+  position: absolute;
+  height: 37%;
+  width: 40%;
+  left: 27%;
+  top: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 30px 10px;
+  box-shadow: 10px 10px 15px;
+  background: rgba(236, 236, 236, 0.856);
+  overflow: scroll;
+}
+
+#value-spacer {
+  width: 100%;
+  text-align: center;
+}
+
+#update-advisement {
+  margin-top: -130px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#form-value {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+#new-advisement {
+  font-size: 16px;
+  text-align: center;
+  padding: 3px 5px;
+  margin-top: 8px;
+  width: 76%;
+  border: 2px solid rgba(0,0,0,0.3);
+  transition: all 0.3s;
+}
+
+#new-advisement:focus {
+  border-color: #1e6b00;
+}
+
+#submit-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#submit-update {
+  position: relative;
+  bottom: -18px;
+  z-index: 10;
+  padding: 4px 120px;
+  transition: all 0.3s;
+  width: 76%;
+}
+
+#submit-update:hover {
+  transform: scale(1.05);
+  background: #4ec51f;
+}
+
+#update-background {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 88px;
+  background: rgb(197, 194, 194);
+}
+
+#update-back-button {
+  position: absolute;
+  bottom: 12px;
+  z-index: 10;
+  text-decoration: none;
+  color: black;
+  transition: all 0.3s;
+}
+
+#update-back-button:hover {
+  color: red;
 }
 
 tr th {

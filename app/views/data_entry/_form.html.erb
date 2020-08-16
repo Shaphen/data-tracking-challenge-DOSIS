@@ -1,7 +1,15 @@
-<form id="update-advisement" action="<%= data_entry_url(entry) %>" method="POST">
-  <input type="hidden" name="_method" value="PATCH">
+  <a id="update-back-button" href="<%= worker_bee_url(entry.worker_id) %>">Back</a>
 
-  <label id="form-value" for="advisement">New Advisement:</label>
-  <input id="new-advisement" type="text" name="advisement" value="<%= entry.advisement %>">
-  <input type="submit">
-</form>
+  <form id="update-advisement" action="<%= data_entry_url(entry) %>" method="POST">
+    <input type="hidden" name="_method" value="PATCH">
+
+    <div id="value-spacer">
+      <label id="form-value" for="advisement">New Advisement:</label>
+    </div>
+    <input id="new-advisement" type="text" name="advisement" value="<%= entry.advisement %>">
+  <div id="update-background">
+    <div id="submit-container">
+      <input id="submit-update" type="submit">
+    </div>
+  </div>
+  </form>

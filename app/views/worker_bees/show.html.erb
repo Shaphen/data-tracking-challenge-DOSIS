@@ -76,7 +76,9 @@
           <% if entry.advisement %>
             <th><%= entry.advisement %></th>
             <th>
-              <button><a href="<%= edit_data_entry_url(entry) %>">Edit Advisement</a></button>
+              <button id="edit-advisement-button">
+                <a id="edit-advisement-text" href="<%= edit_data_entry_url(entry) %>">Edit Advisement</a>
+              </button>
             </th>
           <% else %>
             <th>N/A</th>
