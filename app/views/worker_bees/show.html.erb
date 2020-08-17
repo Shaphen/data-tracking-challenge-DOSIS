@@ -44,7 +44,7 @@
         <th>Advisement</th>
         <th>% Accepted</th>
       </tr>
-      <% @data.reverse.each_with_index do |entry, idx| %>
+      <% @data.each_with_index do |entry, idx| %>
         <tr id="data-table-values">
           <th><%= @worker_bee.id %></th>
           <th><%= @worker_bee.id %>-<%= @comb.id %></th>
@@ -70,7 +70,7 @@
         <th>Advisement</th>
         <th>Overrule</th>
       </tr>
-      <% @data.reverse.each_with_index do |entry, idx| %>
+      <% @data.each_with_index do |entry, idx| %>
         <tr id="data-table-values">
           <th><%= entry.date %></th>
           <th><%= entry.pollen_globs %></th>
@@ -145,4 +145,3 @@
     });
   });
 </script>
-<%# <script src="chart.js" /> %>

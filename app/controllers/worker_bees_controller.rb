@@ -1,5 +1,5 @@
 class WorkerBeesController < ApplicationController
-  include PercentageAccepted
+  include OrganizeWorkerData
 
   def index
     @worker_bees = WorkerBee.all
@@ -19,33 +19,17 @@ class WorkerBeesController < ApplicationController
     
     # initialize data for charts
     gon.worker_name = @worker_bee.name
-    gon.dates, gon.pg_values, gon.nectars, @percent_accepted = [], [], [], []
-  
-    # variables for iteration
-    @curr_advisement = @data.first.advisement
-    @accepted = 0.0
-    @rejected = 1.0
+    gon.dates, gon.pg_values, gon.nectars = [], [], []
     
-    # iterate each entry in data table and push into exchange gem variable
-    @data = @data.order(:date)
-    @data.each do |entry|
-      gon.dates << entry.date if gon.dates.length < 8
-      gon.pg_values << entry.pollen_globs if gon.pg_values.length < 8
-      gon.nectars << entry.nectar / 100 if gon.nectars.length < 8
-
-      # starter variables for accepted percentage logic
-      if entry.advisement
-        @curr_advisement = entry.advisement 
-        @accepted = 0
-        @rejected = 0
-      end
-
-      # call helper method and reassign variables
-      results = PercentageAccepted.calculate(entry.nectar, @curr_advisement, @accepted, @rejected)
-      @percent_accepted.unshift(results[0].round()) # unshift because table goes from bottom-up (as per design docs)
-      @accepted = results[1]
-      @rejected = results[2]
+    @data = @data.order(:date).reverse_order
+    @data.limit(7).each do |entry|
+      gon.dates.unshift(entry.date)
+      gon.pg_values.unshift(entry.pollen_globs)
+      gon.nectars.unshift(entry.nectar / 100)
     end
+
+    # calculate percentage accepted for tables
+    @percent_accepted = OrganizeWorkerData.organize(@data)
 
     render :show
   end
