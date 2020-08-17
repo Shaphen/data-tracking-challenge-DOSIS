@@ -7,7 +7,7 @@ class WorkerBeesController < ApplicationController
   end
 
   def show
-    @comb_memberships = CombStaffMember.where(worker_id: params[:id]) # find all membershipts
+    @comb_memberships = CombStaffMember.where(worker_id: params[:id]) # find all memberships
     @active_membership = @comb_memberships.order(:created_at).last # find active membership (last assigned comb)
 
     # get worker bee info for display
@@ -15,10 +15,13 @@ class WorkerBeesController < ApplicationController
     @comb = Comb.find_by(id: @active_membership.comb_id)
     @supervisor = WorkerBee.find_by(id: @comb.supervisor_id)
 
-    # data for charts and variable exchanges
     @data = DataEntry.where(worker_id: params[:id]) # grab all data of worker bee
+    
+    # initialize data for charts
     gon.worker_name = @worker_bee.name
     gon.dates, gon.pg_values, gon.nectars, @percent_accepted = [], [], [], []
+  
+    # variables for iteration
     @curr_advisement = @data.first.advisement
     @accepted = 0.0
     @rejected = 1.0

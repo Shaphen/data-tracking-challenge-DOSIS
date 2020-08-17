@@ -1,9 +1,5 @@
 class DataEntryController < ApplicationController
   
-  def show
-
-  end
-  
   def edit
     @entry = DataEntry.find_by(id: params[:id])
     render :edit

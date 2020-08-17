@@ -31,6 +31,7 @@
 
 
   <%# table display %>
+  <%# enhanced view table %>
   <div id="table-container">
   <button id="toggle-view">Toggle View</button>
     <table id="data-table">
@@ -60,6 +61,7 @@
       <% end %>
     </table>
 
+    <%# regular view table %>
     <table id="data-table-reg-blank">
       <tr id="data-table-titles-reg">
         <th>Date</th>
@@ -91,26 +93,30 @@
   </div>
 </div>
 
+
 <%# table and chart javascript logic %>
 <script>
   let toggle = document.getElementById("toggle-view")
   let switched = false
+
   toggle.addEventListener("click", function () {
     switched = !switched
-    mainTableShow = document.getElementById("data-table")
-    regTableBlank = document.getElementById("data-table-reg-blank")
-    mainTableBlank = document.getElementById("data-table-blank")
-    regTableShow = document.getElementById("data-table-reg")
+  
     if (switched) {
+      const mainTableShow = document.getElementById("data-table")
+      const regTableBlank = document.getElementById("data-table-reg-blank")
+
       mainTableShow.setAttribute("id", "data-table-blank")
       regTableBlank.setAttribute("id", "data-table-reg")
     } else {
+      const mainTableBlank = document.getElementById("data-table-blank")
+      const regTableShow = document.getElementById("data-table-reg")
+
       mainTableBlank.setAttribute("id", "data-table")
       regTableShow.setAttribute("id", "data-table-reg-blank")
     }
   });
-</script>
-<script>
+
   document.addEventListener("DOMContentLoaded", function() {
     Highcharts.chart("data-chart", {
       chart: {
