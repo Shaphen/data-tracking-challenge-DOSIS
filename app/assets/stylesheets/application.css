@@ -9,3 +9,9 @@ html, body {
   background: rgba(255, 255, 255, 0.938);
   font-family: Alata;
 }
+
+#errors {
+  position: relative;
+  top: -100px;
+  color: red;
+}

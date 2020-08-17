@@ -1,5 +1,6 @@
 class DataEntry < ApplicationRecord
   validates :worker_id, :date, :pollen_globs, :nectar, presence: true
+  validates :advisement, numericality: { only_integer: true, message: "has to be a number" }
 
   belongs_to :bee,
     foreign_key: :worker_id,

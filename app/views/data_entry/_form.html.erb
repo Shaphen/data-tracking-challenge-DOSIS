@@ -1,6 +1,10 @@
+
   <a id="update-back-button" href="<%= worker_bee_url(entry.worker_id) %>">Back</a>
 
   <form id="update-advisement" action="<%= data_entry_url(entry) %>" method="POST">
+    <% if flash[:errors] %>
+        <p id="errors"><%= flash[:errors].join(", ") %></p>
+    <% end %>
     <input type="hidden" name="_method" value="PATCH">
 
     <div id="value-spacer">
