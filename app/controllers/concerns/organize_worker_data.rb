@@ -20,7 +20,9 @@ module OrganizeWorkerData
       end
 
       # call helper method and reassign variables
-      results = PercentageAccepted.calculate(entry.nectar, @curr_advisement, @accepted, @rejected)
+      results = PercentageAccepted.calculate(
+        entry.nectar, @curr_advisement, @accepted, @rejected
+      )
       percent_accepted.unshift(results[0].round()) # unshift because table goes from bottom-up (as per design docs)
       @accepted = results[1]
       @rejected = results[2]
