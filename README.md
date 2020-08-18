@@ -63,6 +63,6 @@ Through some research I found out that the system behind this conflict was turbo
 #### Seperated the calculation of `%Accepted` from the manipulation of the data variables
 ![SOC](https://github.com/Shaphen/shaphen_bee_challenged/blob/master/app/assets/images/SOP.png)
 
-I decided to create two concerns for finding the percentage of accepted nectar, `organize_worker_data.rb` and `percentage_accepted.rb`. This was based on my practice of seperation of concerns. The declaration, manipulation, and population of the variables were different tasks than calculating the actual percentage itself. I found it appropriate to make a `PercentageAccepted` module to be utilized by the `OrganizeWorkerData` module called in `worker_bees_controller`.
+I decided to create two concerns for finding the percentage of accepted nectar, `organize_worker_data.rb` and `percentage_accepted.rb`. This was based on the seperation of concerns principle. The declaration, manipulation, and population of the variables were different tasks than calculating the actual percentage itself. I found it appropriate to make a `PercentageAccepted` module to be utilized by the `OrganizeWorkerData` module called in `worker_bees_controller`.
   
 NB: I was advised to have fun in the design docs and I took that seriously as I made the seed data. Hope you enjoy.
