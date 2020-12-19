@@ -1,5 +1,5 @@
-## DOSIS Challenge Notes (README):
-Thank you for allowing me the opportunity to take this challenge. Here you will find my completed product with information on various decisions I made throughout the process. Here are a few pictures and gifs for your reference 
+## Notes (README):
+Here you will find my completed product with information on various decisions I made throughout the process. Here are a few pictures and gifs for your reference 
 
 ### Main Page
 ![first-load](https://github.com/Shaphen/shaphen_bee_challenged/blob/master/app/assets/images/first_load.png)
